@@ -1,0 +1,26 @@
+
+name: Build Java Project
+
+on: 
+  push:
+
+jobs:
+  
+  build:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Descargar el repositorio
+        uses: action/checkout@v4
+
+      - name: Instalar Java 
+        uses: actions/setup-java@v4 
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compilar proyecto
+        run: mvn compile 
+      
